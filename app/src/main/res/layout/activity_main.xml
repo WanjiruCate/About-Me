@@ -13,4 +13,5 @@
         android:text="@string/txt_name"
         android:textAlignment="center"
         style="@style/NameStyle" />
+
 </LinearLayout>
