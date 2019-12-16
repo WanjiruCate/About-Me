@@ -15,12 +15,15 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    private val myName: MyName = MyName("Wanjiru Catherine")
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         //setContentView(R.layout.activity_main)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
 
-        //findViewById<Button>(R.id.done_button).setOnClickListener { addNickname(it) }
+        binding.myName = myName
+
 
         binding.doneButton.setOnClickListener {
             addNickname(it) }
@@ -31,11 +34,12 @@ class MainActivity : AppCompatActivity() {
     private fun addNickname(view: View) {
 
         binding.apply {
-            binding.nicknameText.text = binding.nicknameEdit.text
+            myName.nickname = nicknameEdit.text.toString()
+            //nicknameText.text = binding.nicknameEdit.text
             invalidateAll()
-            binding.nicknameEdit.visibility = View.GONE
-            view.visibility = View.GONE
-            binding.nicknameText.visibility = View.VISIBLE
+            nicknameEdit.visibility = View.GONE
+            doneButton.visibility = View.GONE
+            nicknameText.visibility = View.VISIBLE
         }
 
         //Hide the Keyboard
