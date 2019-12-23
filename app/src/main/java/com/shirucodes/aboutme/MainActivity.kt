@@ -15,6 +15,7 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
 
+    //Instance of the binding object
     private val myName: MyName = MyName("Wanjiru Catherine")
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,7 +35,7 @@ class MainActivity : AppCompatActivity() {
     private fun addNickname(view: View) {
 
         binding.apply {
-            myName.nickname = nicknameEdit.text.toString()
+            myName?.nickname = nicknameEdit.text.toString()
             //nicknameText.text = binding.nicknameEdit.text
             invalidateAll()
             nicknameEdit.visibility = View.GONE
